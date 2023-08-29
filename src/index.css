@@ -1,0 +1,926 @@
+* {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  /* background-image: "./images/back"; */
+}
+.top-bar{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  padding: 5px 10%;
+  background-color: #1a0023;
+}
+.top-bar nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.top-bar nav h1{
+  color: white;
+  font-size: 30px;
+}
+.top-bar nav ul li{
+  display: inline-block;
+  list-style: none;
+  margin: 2px 20px;
+}
+.top-bar nav ul a{
+  text-decoration: none;
+
+}
+.app {
+  display: flex;
+  width: 100%;
+  height: 525px;
+}
+
+.chat-main{
+  background-color: #87c7f5;
+  width: 85%;
+}
+
+.getrec{
+  cursor: pointer;
+}
+.chat-main h1{
+  color: #f1fffe;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.chat-messages-container {
+  max-height: 400px;
+  overflow-y: scroll; /* This will make the container scroll if content exceeds its height */
+  padding: 20px;
+  margin: 20px 50px 0px 50px;
+  background-color: #87c7f5;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.chat-messages-container:hover {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+
+.side-bar {
+  background-color: #64CCC5;
+  width: 300px;
+  position: fixed;
+  top: 75px; /* Adjust for the height of the top bar */
+  bottom: 0;
+  margin-top: 20px; /* Add margin to create space between nav bar and sidebar */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto;
+}
+
+button {
+  border: solid 3px #ffffff;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.app nav {
+  border-top: solid 0.5px black;
+  padding: 10px;
+  margin: 10px;
+}
+
+.inputbox{
+  width:80%;
+  color: #DAFFFB;
+  background-color: #032136;
+  position: relative;
+  right: 150px;
+}
+.history {
+  padding: 10px;
+  margin: 0px;
+  height: 100%;
+}
+
+.history li {
+  list-style-type: none;
+  margin: 5px;
+  padding: 20px 20px;
+  cursor: pointer;
+  background-color: #520f4c;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-size: large;
+}
+
+.main {
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  color:#023734;
+  font-size: 10px;
+  padding: 10px;
+}
+
+
+
+.input-container #submit {
+  cursor: pointer;
+  background-color: #24062b;
+}
+
+
+.input-container {
+  position: absolute;
+  /* bottom: 15px; */
+  width: 72%;
+  left: 30px;
+  max-width: 650px;
+}
+
+.input-container input {
+  width: 85%; /* Adjust the width as needed */
+  border: none;
+  font-size: 20px;
+  background-color: #24062b;
+  padding: 12px 15px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 54px 55px;
+  margin: 10px auto;
+  display: block; 
+  margin-left:0px;
+}
+
+/* Adjust bottom-section positioning */
+.bottom-section {
+  /* background-attachment: fixed; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+
+/* ... Your other CSS rules ... */
+
+input {
+  width: 445px; /* Adjust the width as needed */
+  border: none;
+  font-size: 20px;
+  background-color: #032520;
+  padding: 12px 15px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 54px 55px;
+  margin: 10px auto;
+  display: block; 
+  margin-left:10%;
+}
+
+input:hover {
+  border: solid 3px #ffffff;
+}
+
+input:focus {
+  outline: none;
+}
+
+#submit {
+  position: absolute;
+  bottom: 11px;
+  right: 0px; /* Adjust the position from the right edge */
+  cursor: pointer;
+  padding: 15px;
+  background-color: #000000;
+  border-radius: 50%;
+  transition: background-color 0.3s ease, transform 0.5s ease;
+  animation: buttonClickAnimation 0.3s ease 1s;
+}
+
+@keyframes buttonClickAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+
+
+
+/* ... Your other CSS rules ... */
+
+.feed {
+  height:85%;
+  overflow-y: auto ;
+  width: 85%;
+  padding: 20px;
+  margin: 20px 50px 0px 50px;
+}
+
+.feed-scrolling {
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease, border 0.3s ease;
+}
+
+.feed-scrolling:hover {
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ccc;
+}
+
+/* .feed li {
+  display: flex;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  border: solid 3px #0EBD9F;
+} */
+
+.feed p {
+  color: #000000;
+  font-size: 15px;
+  text-align: left;
+}
+.feed::-webkit-scrollbar {
+  display: none;
+}
+
+.feed p.role {
+  min-width: 100px;
+} 
+.feed li{
+  margin-right:10px;
+}
+
+.chat-bubble {
+  display: inline-block;
+  padding: 18px 25px;
+  border-radius: 15px;
+  margin: 5px;
+  /* word-wrap: break-word;  */
+  max-width: 70%; /* Set a maximum width for the chat bubble */
+  text-align: left;
+}
+
+.user-bubble {
+  background-color: #DCF8C6; 
+    align-self: flex-end; 
+    border:solid 3px ;
+    max-width: 70%; /* Set a maximum width for the chat bubble */
+  text-align: left;
+  }
+  
+  .chatbot-bubble {
+    background-color: #E4E6EB; 
+    align-self: flex-start; 
+    border:solid 3px ;
+    max-width: 70%; /* Set a maximum width for the chat bubble */
+  text-align: left;
+}
+
+.message-container {
+  display: flex;
+  justify-content: flex-start; 
+}
+
+.user-message-container {
+  justify-content: flex-end;
+}
+
+
+
+* {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box; /* Add this line for consistent sizing */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent body overflow */
+}
+
+/* ... Your other CSS rules ... */
+
+.app {
+  display: flex;
+  height: calc(100vh - 40px); /* Adjust for top bar */
+}
+
+.side-bar {
+  background-color: #64CCC5;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-y: auto; /* Add this line to enable scrolling */
+}
+
+.chat-main {
+  background-color: #87c7f5;
+  flex-grow: 1; 
+}
+
+/* Adjust bottom-section positioning */
+.bottom-section {
+  background-attachment: fixed;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+}
+
+/* ... Your other CSS rules ... */
+
+.feed {
+  background-color: #00080770;
+  max-height: calc(100% - 40px); /* Adjust for padding/margin */
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* ... Your other CSS rules ... */
+
+/* Adjust chat bubble styles */
+.chat-bubble {
+  display: inline-block;
+  padding: 18px 25px;
+  border-radius: 15px;
+  margin: 5px;
+  word-wrap: break-word;
+  max-width: 70%; /* Limit the bubble width */
+}
+
+.user-bubble {
+  background-color: #9cc57c;
+  align-self: flex-end;
+  border: solid 3px #ffffff;
+}
+
+.chatbot-bubble {
+  background-color: #918352;
+  align-self: flex-start;
+  border: solid 3px #ffffff;
+}
+
+.message-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start; /* Add this line for alignment */
+}
+
+.user-message-container {
+  justify-content: flex-end;
+  align-items: flex-end; /* Add this line for alignment */
+}
+
+.chat-main {
+  background-color: #87c7f5;
+  width: 30%; /* Adjust based on sidebar width and desired margin */
+  position: fixed;
+  top: 95px; /* Adjust for the height of the top bar */
+  bottom: 0;
+  right: 0;
+}
+
+/* ... Your other CSS rules ... */
+
+.top-bar nav ul {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  
+
+}
+
+.getrec {
+  cursor: pointer;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+/* ... Your other CSS rules ... */
+
+.bot-typing-indicator {
+  font-style: italic;
+  margin-top: 5px;
+  color: #ff0000; /* Use the color you prefer */
+}
+
+.dark-mode {
+  background-color: #444654;
+  color: #fff;
+}
+.dark-mode .feed{
+  background-color: #24062b;
+  color: #fff;
+}
+.dark-mode .side-bar {
+  background-color: #24062b;
+  color: #fff;
+  border:1px solid white;
+}
+
+
+
+  .app {
+    display: flex;
+    /* background-image: url("./images/back.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* width: 100vh; Use vw for viewport width */
+    height: 100vh; /* Use vh for viewport height */
+  }
+  .dark-mode .app {
+    display: flex;
+    background-color: #000000;
+    /* width: 100vh; Use vw for viewport width */
+    height: 100vh; /* Use vh for viewport height */
+  }
+  .side-bar {
+    background-color: #00080770;
+    width: 17.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: auto;
+  }
+  
+  .main-content {
+    display: flex;
+  flex-grow: 1;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  overflow: hidden;
+  }
+  
+  .video-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    padding: 60px;
+    max-width:60%;
+    overflow: hidden;
+  }
+
+  .chat-main {
+    width: 35%;
+    background-color: #87c7f5;
+    flex-grow: 1; 
+  }
+  
+  /* Clear floating elements to maintain layout integrity */
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+
+  .inputbox {
+    width: 80%;
+    color: #DAFFFB;
+    background-color: #24062b;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    /* margin: 10px; */
+    display: block;
+    margin-left: 35%;;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 54px 55px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .inputbox:hover {
+    border-color: #023734;
+  }
+  
+  .inputbox:focus {
+    outline: none;
+    border-color: #000000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .video-list-container {
+    max-height: 600px; /* Adjust the maximum height as needed */
+    overflow: auto; /* Add a scrollbar when content overflows */
+  }
+  
+  .video-list-scrolling {
+    max-height: 300px; /* Adjust the maximum height of each video item */
+    overflow-y: auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: box-shadow 0.3s ease, border 0.3s ease;
+  }
+  
+  .video-item {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .input-container {
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 20px; */
+  }
+  
+  
+  .getrec {
+    background-color: #032520;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .getrec:hover {
+    background-color: #0056b3;
+  }
+
+  .rec-box{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    width: 56%;
+  }
+  .getrec {
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+  }
+  button.getrec {
+    border: solid 3px #eef8f8;
+    background-color: #24062b;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+  }
+  
+  /* ... Your other CSS rules ... */
+
+.video {
+  max-height: 700px;
+  overflow-y: auto;
+  animation: fadeInUp 3s; /* Add an animation */
+  overflow: hidden; /* Hide the scrollbar */
+  position: relative; 
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.video-list-container {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.video-list-container li {
+  padding: 10px;
+  /* border-bottom: 1px solid #e0e0e0; */
+}
+
+/* Hide scrollbar on the entire page */
+.video-list-container::-webkit-scrollbar {
+  width: 0 !important; 
+  display: none !important;
+}
+
+/* Optional: If you want to style the scrollbar track */
+.video-list-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* Optional: If you want to style the scrollbar thumb (handle) */
+.video-list-container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+
+/* Optional: If you want to style the scrollbar corner (where vertical and horizontal scrollbars meet) */
+.video-list-container::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+.chat-main{
+  background-color: #00000021;
+}
+
+
+
+.transcript-page{
+  height: 100vh;
+  width: 100%;
+  /* background-image: url("./images/back.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+ 
+.summary_size h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inputboxing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 180px;
+}
+
+
+.labelname {
+  width: 20%;
+  text-align: center;
+  justify-content: center;
+}
+
+.input-icons i {
+  background-color: #3a6e6b;
+  margin-top: 10px;
+  margin-left: 4.5%;
+}
+.search-icon{
+  position: absolute;
+  height: 40px;
+  width: 30px;
+  margin: 12px;
+  background-color: #3a6e6b;
+  margin-top: 12px;
+  margin-left: 4.5%;
+  border-right: solid 1px black;
+}
+.input-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 90%;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+
+.input-field {
+  
+  text-align: start;
+  width: 90%;
+  border: none;
+  font-size: 20px;
+  background-color: #3a6e6b;
+  padding: 12px;
+  padding-left: 60px;
+  border-radius: 5px;
+  /* box-shadow: rgba(0, 0, 0, 0.05) 0 54px 55px; */
+  margin: 10px auto;
+  margin-left: 5%;
+}
+
+.inputboxing button {
+  width: 16%;
+  border: solid 3px #24062b;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.summary{
+  max-height: 600px;
+  margin: 50px 120px 0px;
+  padding: 20px;
+  background-color: #007bff;
+  border-radius: 5px;
+}
+
+.summary::-webkit-scrollbar{
+  background-color: transparent;
+}
+
+
+
+
+.active {
+  background-color: #3cb7df; /* Change this to the color you prefer */
+  color: white;
+  border-radius: 10px;
+  padding: 5px 15px;
+}
+
+
+/* ... Your other CSS rules ... */
+
+.active-link {
+  position: relative;
+}
+
+.active-link::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #3cb7df; /* Change this to the color you prefer */
+  bottom: -3px;
+  transform-origin: bottom left;
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.active-link.active::before {
+  transform: scaleX(1);
+}
+
+
+
+/* Apply zoom-in transition to links */
+.active-link {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.active-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #3cb7df; /* Change this to the color you prefer */
+  transform: scaleX(0);
+  transform-origin: bottom left;
+  transition: transform 0.3s ease-in-out;
+}
+
+.active-link.active::after,
+.active-link:hover {
+  transform: scaleX(1) scale(1.1); /* Apply zoom-in scaling */
+}
+
+/* ... Your other CSS rules ... */
+.rec-box ul {
+  max-height: 400px; /* Set a suitable maximum height */
+  overflow-y: auto;
+}
+
+.rec-video-list {
+  max-height: 400px; /* Set a suitable maximum height */
+  overflow-y: auto;
+}
+
+/* <---- help.js------> */
+
+.help-page{
+  height: 100vh;
+  width: 100%;
+  /* background-image: url("./images/back.jpg"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: auto;
+}
+
+.help-form{
+  background-color: #00000073;
+  border-radius: 20px;
+  padding: 20px;
+  margin-top: 25px;
+  margin-left: 25%;
+  width: 50%;
+}
+.btn{
+  display: block;
+  margin:18px auto;
+  margin-left: 76%;
+  width: fit-content;
+  padding: 14px 50px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #fff;
+}
+.btn.btn2{
+  display: inline-block;
+  background: #010002;
+}
+.search-icon
+.contact-right{
+  flex-basis: 20%;
+}
+.contact-right form{
+  width: 50%;
+}
+form input,form textarea{ 
+  width: 100%;
+  border: 0;
+  outline: none;
+  background: #000000;
+  padding: 15px;
+  margin: 15px 0;
+  margin-left: 50%;
+  color: #fff;
+  font-size: 18px;
+  border-radius: 6px;
+
+}
+form .btn2{
+  padding: 14px 60px;
+  font-size: 18px;
+  margin-top: 20x;
+  cursor: pointer;
+}
+
+
+/* In your CSS file (Transcript.css) */
+.input-container {
+  position: relative; /* Make the parent relative */
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 20px; */
+}
+
+.search-icon {
+  position: absolute;
+  /* height: 63%; */
+  margin-left: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  pointer-events: none; /* Place the search icon above the input */
+}
+
+.summary {
+  max-width: 70%;
+  max-height: 300px; /* Set a suitable maximum height */
+  overflow-y: auto;
+  background-color: #be4ad352;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-left: 16%;
+  position: relative; /* Make the parent relative */
+}
+
+.summary h2{
+  display: flex;
+  justify-content: center;
+}
+
+/* ... (your other styles) */
+
+.summary_size {
+  /* background-color: #000000; */
+  height: 100%;
+}
+
+.app.dark-mode {
+  background-image: linear-gradient(45deg, #5F0F40,#310E68);
+}
+
+.mainbox {
+  background-image: linear-gradient(45deg, #5F0F40,#310E68);
+}
